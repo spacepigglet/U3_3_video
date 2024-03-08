@@ -123,20 +123,12 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("MissingPermission")
     private void startRecording() {
-        //videoFile = new File(getExternalFilesDir(Environment.DIRECTORY_MOVIES), "recorded_video.mp4");
-        //binding.cameraPreview.setVisibility(View.VISIBLE);
-        //binding.exoPlayerView.setVisibility(View.GONE);
-        //isRecording = true;
         createFileName();
         ContentValues contentValues = new ContentValues();
         contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, fileName);
         contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "video/mp4");
         contentValues.put(MediaStore.Video.Media.RELATIVE_PATH, "Movies/CameraX-Video");
 
-
-        //filePath = MediaStore.Video.Media.EXTERNAL_CONTENT_URI + "/Movies/CameraX-Video/" + fileName +".mp4";
-        Log.d("filePath", "manually built path: " + filePath);
-        //findFilePath();
         MediaStoreOutputOptions options = new MediaStoreOutputOptions.Builder(getContentResolver(), MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
                 .setContentValues(contentValues).build();
 
@@ -165,11 +157,10 @@ public class MainActivity extends AppCompatActivity {
                 uri = finalizeEvent.getOutputResults().getOutputUri();
                 Log.d("filePath", "Recording stopped filePath: " + uri);
                         //The output Uri can be obtained via OutputResults.getOutputUri() from VideoRecordEvent.Finalize.getOutputResults().
-                //cameraController.unbind();
+
                 int error = finalizeEvent.getError();
                 if (error != VideoRecordEvent.Finalize.ERROR_NONE) {
                     msg = "Error: " + ((VideoRecordEvent.Finalize) videoRecordEvent).getError();
-                    //...
                 }
             }
             //Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
@@ -238,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        cameraController.unbind();
         Log.d("Current State", "MainActivity: onDestroy()");
     }
 
