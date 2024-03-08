@@ -225,7 +225,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -233,34 +232,4 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Current State", "MainActivity: onDestroy()");
     }
 
-
-
-
-/**
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot()); //R.layout.activity_main
-
-        exoPlayer = new ExoPlayer.Builder(getApplicationContext()).build();
-        binding.exoPlayerView.setPlayer(exoPlayer);
-        binding.toggleButton.setOnClickListener(onClick -> videoButtonBehaviour());
-    }
-
-    private void setupCamera(){
-        Recorder recorder = new Recorder.Builder().build();
-        VideoCapture<>
-        PreviewView previewView = viewBinding.previewView;
-        LifecycleCameraController cameraController = new LifecycleCameraController(baseContext);
-        cameraController.bindToLifecycle(this);
-        cameraController.setCameraSelector(CameraSelector.DEFAULT_BACK_CAMERA);
-        previewView.setController(cameraController);
-    }
-
-    private void videoButtonBehaviour() {
-
-
-    }
-    **/
 }
