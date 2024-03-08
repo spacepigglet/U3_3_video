@@ -135,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
         AudioConfig audioConfig = AudioConfig.create(true);
         recording = cameraController.startRecording(options, audioConfig, ContextCompat.getMainExecutor(this), videoRecordEvent -> { //new Consumer<VideoRecordEvent> @Override public void accept(VideoRecordEvent event)
             String msg ="";
-
             if (videoRecordEvent instanceof VideoRecordEvent.Start) {
                 // Handle the start of a new active recording
                 msg = "Recording started";
@@ -163,25 +162,8 @@ public class MainActivity extends AppCompatActivity {
                     msg = "Error: " + ((VideoRecordEvent.Finalize) videoRecordEvent).getError();
                 }
             }
-            //Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-
-            // All events, including VideoRecordEvent.Status, contain RecordingStats.
-            // This can be used to update the UI or track the recording duration.
-            RecordingStats recordingStats = videoRecordEvent.getRecordingStats();
-            //...
+           
         });
-
-        /*recorder = new Recorder.Builder()
-                .setQualitySelector(QualitySelector.from(Quality.HIGHEST))
-                .build();
-        videoCapture = VideoCapture.withOutput(recorder);
-        PendingRecording pendingRecording = recorder.prepareRecording(getBaseContext(), options);
-        pendingRecording.withAudioEnabled();
-        recording = pendingRecording.start(ContextCompat.getMainExecutor(this), videoRecordEvent -> { //new Consumer<VideoRecordEvent> @Override public void accept(VideoRecordEvent event)
-            String msg ="";
-
-           (...)
-        });*/
 
     }
 
