@@ -37,41 +37,6 @@ public class PlaybackActivity extends AppCompatActivity {
             }
         });
 
-       /*// if(filePath == null || filePath.isEmpty()) {
-            //try {
-                //Bundle pathBundle=getIntent().getExtras();
-                //filePath = pathBundle.getString("fileUri");
-                filePath = getIntent().getStringExtra("fileUri");
-                Log.d("Current State", "filePath after getIntent().getStringExtra(\"fileUri\"):" + filePath);
-           // } catch (Exception e) {
-              //  e.printStackTrace();
-           // }
-        //}
-        if (filePath == null || filePath.isEmpty()){
-            Log.d("Current State", "isEmpty??" + filePath);
-            //filePath = savedInstanceState.getString(KEY);
-            try{
-                Log.d("Current State", "try??" + filePath);
-                filePath = savedInstanceState.getString(KEY);
-                Log.d("Current State", "filePath after savedInstanceState.getString(KEY);:" + filePath);
-            } catch (Exception e) {
-                Log.d("Current State", "FAIL savedInstanceState.getString()");
-                e.printStackTrace();
-            }
-
-
-            Toast.makeText(this, "restored", Toast.LENGTH_SHORT);
-        }
-        Log.d("Current State", "Kept going after catch");
-
-        if ((filePath != null) && !(filePath.isEmpty())){
-            Log.d("Current State", "player to be initialized with filepath: " + filePath);
-            initializePlayer();
-        } else {
-            Toast.makeText(this, "No recent video to play", Toast.LENGTH_SHORT).show();
-            Log.d("Current State", "No recent video to play");
-        }*/
-
         filePath = getIntent().getStringExtra("fileUri");
         Log.d("Current State", "filePath after getIntent().getStringExtra(\"fileUri\"):" + filePath);
 

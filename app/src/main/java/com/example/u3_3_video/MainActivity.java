@@ -150,8 +150,6 @@ public class MainActivity extends AppCompatActivity {
                 // Handles a finalize event for the active recording, checking Finalize.getError()
                 msg = "Recording stopped";
                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-
-                //recording.stop();
                 recording.close();
                 uri = finalizeEvent.getOutputResults().getOutputUri();
                 Log.d("filePath", "Recording stopped filePath: " + uri);
@@ -162,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     msg = "Error: " + ((VideoRecordEvent.Finalize) videoRecordEvent).getError();
                 }
             }
-           
+
         });
 
     }
@@ -176,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         if (uri != null) {
             outState.putString(KEY, uri.toString());
-        }//outState = mState;
+        }
         Log.d("Current State", "MainActivity: onSaveInstanceState");
 
     }
