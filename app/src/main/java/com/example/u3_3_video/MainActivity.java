@@ -4,63 +4,39 @@ import static androidx.camera.view.CameraController.VIDEO_CAPTURE;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.util.Size;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.AspectRatio;
-import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
-import androidx.camera.core.ImageCapture;
-import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.video.MediaStoreOutputOptions;
-import androidx.camera.video.OutputResults;
-import androidx.camera.video.PendingRecording;
-import androidx.camera.video.Quality;
-import androidx.camera.video.QualitySelector;
 import androidx.camera.video.Recorder;
 import androidx.camera.video.Recording;
 import androidx.camera.video.RecordingStats;
 import androidx.camera.video.VideoCapture;
 import androidx.camera.video.VideoRecordEvent;
-import androidx.camera.video.impl.VideoCaptureConfig;
 import androidx.camera.view.LifecycleCameraController;
 import androidx.camera.view.PreviewView;
 import androidx.camera.view.video.AudioConfig;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.util.Consumer;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.media3.common.MediaItem;
-import androidx.media3.exoplayer.ExoPlayer;
-import androidx.media3.ui.PlayerView;
 
 import com.example.u3_3_video.databinding.ActivityMainBinding;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
      ActivityMainBinding binding ;

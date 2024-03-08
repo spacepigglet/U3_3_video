@@ -1,28 +1,17 @@
 package com.example.u3_3_video;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.media3.common.MediaItem;
-import androidx.media3.common.util.Util;
-import androidx.media3.datasource.DefaultDataSourceFactory;
-import androidx.media3.exoplayer.ExoPlaybackException;
-import androidx.media3.exoplayer.ExoPlayer;
-import androidx.media3.exoplayer.source.ProgressiveMediaSource;
-import androidx.media3.exoplayer.trackselection.DefaultTrackSelector;
-
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.u3_3_video.databinding.ActivityPlaybackBinding;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.media3.common.MediaItem;
+import androidx.media3.exoplayer.ExoPlayer;
 
-import java.io.FileNotFoundException;
+import com.example.u3_3_video.databinding.ActivityPlaybackBinding;
 
 public class PlaybackActivity extends AppCompatActivity {
     ActivityPlaybackBinding binding;
