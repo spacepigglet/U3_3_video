@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean isRecording = false;
     private Recording recording;
     private String fileName;
-    private String filePath;
     private Uri uri;
     private Intent intent;
 
@@ -62,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         startCamera();
 
         binding.toggleVideoButton.setOnClickListener(onClick -> toggleRecording());
-        //binding.toggleRecordingButton.setOnClickListener(onClick -> toggleRecording())
 
         binding.playVideoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     // Start the second activity
                     startActivity(intent);
-                } /*else {
-                    Toast.makeText(MainActivity.this, "No recent recording to play", Toast.LENGTH_SHORT).show();
-                }*/
+                }
             }
         });
 
@@ -138,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         contentValues.put(MediaStore.Video.Media.RELATIVE_PATH, "Movies/CameraX-Video");
 
 
-        filePath = MediaStore.Video.Media.EXTERNAL_CONTENT_URI + "/Movies/CameraX-Video/" + fileName +".mp4";
+        //filePath = MediaStore.Video.Media.EXTERNAL_CONTENT_URI + "/Movies/CameraX-Video/" + fileName +".mp4";
         Log.d("filePath", "manually built path: " + filePath);
         //findFilePath();
         MediaStoreOutputOptions options = new MediaStoreOutputOptions.Builder(getContentResolver(), MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
