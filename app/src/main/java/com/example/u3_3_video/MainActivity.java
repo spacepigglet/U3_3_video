@@ -14,16 +14,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraSelector;
-import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.video.MediaStoreOutputOptions;
-import androidx.camera.video.Recorder;
 import androidx.camera.video.Recording;
 import androidx.camera.video.RecordingStats;
-import androidx.camera.video.VideoCapture;
 import androidx.camera.video.VideoRecordEvent;
 import androidx.camera.view.LifecycleCameraController;
 import androidx.camera.view.PreviewView;
@@ -32,23 +28,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.u3_3_video.databinding.ActivityMainBinding;
-import com.google.common.util.concurrent.ListenableFuture;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
      ActivityMainBinding binding ;
-    private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
-    private PreviewView previewView;
     private static final int REQUEST_CODE_PERMISSIONS = 10;
     private static final String[] REQUIRED_PERMISSIONS = new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
-    private VideoCapture videoCapture;
-    private final ActivityResultLauncher<String> activityResultLauncher= null;
-
-    private File videoFile;
-    private Recorder recorder;
     private static final String KEY = "fileUri" ;
     LifecycleCameraController cameraController;
     private boolean isRecording = false;

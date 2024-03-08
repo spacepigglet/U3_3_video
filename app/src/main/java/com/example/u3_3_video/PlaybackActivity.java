@@ -18,7 +18,6 @@ public class PlaybackActivity extends AppCompatActivity {
     private ExoPlayer exoPlayer;
     private String filePath;
     private static final String KEY = "restored_path";
-    //Bundle mState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
