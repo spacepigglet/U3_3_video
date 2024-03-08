@@ -237,12 +237,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void stopRecording() {
         recording.stop();
-        //isRecording = false;
-
-        //cameraProviderFuture = cameraController.getInitializationFuture().addListener();
-
-
-
     }
 
     @Override
@@ -280,64 +274,15 @@ public class MainActivity extends AppCompatActivity {
             uri = Uri.parse(savedInstanceState.getString(KEY));
         }
     }
-    /*private void playRecordedVideo() {
-        File file = new File(fileName);
-        exoPlayer.setMediaItem(MediaItem.fromUri(MediaStore.Video.Media.RELATIVE_PATH + "Movies/CameraX-Video/" + fileName +".mp4"));
-        exoPlayer.prepare();
-        exoPlayer.setPlayWhenReady(true);
 
-        PreviewView cameraPreview = binding.cameraPreview;
-        PlayerView exoPlayerView = binding.exoPlayerView;
-
-        cameraPreview.setVisibility(View.GONE);
-        exoPlayerView.setVisibility(View.VISIBLE);
-    }*/
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.d("Current State", "MainActivity: onDestroy()");
-        /*if (exoPlayer != null) {
-            exoPlayer.release();
-        }*/
     }
 
-    private void findFilePath(){
-        String relativePath = "Movies";
-        String relativePath2 = "CameraX-Video";
-        String name = fileName + ".mp4";
 
-        // Construct the content URI for the recorded video
-        Uri contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI.buildUpon()
-                .appendPath(relativePath)
-                .appendPath(relativePath2)
-                .appendPath(name)
-                .build();
-
-        // Query for the video with the specified file name
-        Cursor cursor = getContentResolver().query(
-                contentUri,
-                null,
-                null,
-                null,
-                null
-        );
-
-        String filePath = null;
-
-        try {
-            if (cursor != null && cursor.moveToFirst()) {
-                // Get the file path from the content URI
-                int filePathIndex = cursor.getColumnIndex(MediaStore.MediaColumns.DATA);
-                filePath = cursor.getString(filePathIndex);
-            }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
-        Log.d("findFilePath: ", filePath);
-    }
 
 
 /**
