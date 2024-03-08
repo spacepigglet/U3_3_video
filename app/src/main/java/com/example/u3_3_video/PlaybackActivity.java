@@ -75,13 +75,13 @@ public class PlaybackActivity extends AppCompatActivity {
             filePath = savedInstanceState.getString(KEY);
             Log.d("Current State", "onRestoreInstanceState - filePath after savedInstanceState.getString(KEY):" + filePath);
 
-            // Check if filePath is non-empty, then initialize the player
+            /*// Check if filePath is non-empty, then initialize the player
             if (!TextUtils.isEmpty(filePath)) {
                 Log.d("Current State", "onRestoreInstanceState - player to be initialized with filepath: " + filePath);
                 initializePlayer();
             } else {
                 Toast.makeText(this, "No recent video to play", Toast.LENGTH_SHORT).show();
-            }
+            }*/
         }
     }
 
