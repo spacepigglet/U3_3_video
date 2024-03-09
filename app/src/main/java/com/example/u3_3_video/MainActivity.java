@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
@@ -105,11 +104,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void toggleRecording() {
         if (isRecording) {
-            binding.toggleVideoButton.setText("Take video");
+            binding.toggleVideoButton.setText(R.string.take_video_button_text);
             stopRecording();
 
         } else {
-            binding.toggleVideoButton.setText("Stop recording");
+            binding.toggleVideoButton.setText(R.string.stop_recording_button_text);
             startRecording();
 
         }
@@ -117,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         isRecording = !isRecording;
     }
     private void createFileName(){
-
         fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.getDefault()).format(System.currentTimeMillis());
     }
 
