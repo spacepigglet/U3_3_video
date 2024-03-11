@@ -19,16 +19,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.video.MediaStoreOutputOptions;
 import androidx.camera.video.Recording;
-import androidx.camera.video.RecordingStats;
 import androidx.camera.video.VideoRecordEvent;
 import androidx.camera.view.LifecycleCameraController;
 import androidx.camera.view.PreviewView;
 import androidx.camera.view.video.AudioConfig;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import com.example.u3_3_video.databinding.ActivityMainBinding;
-
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
@@ -137,12 +134,6 @@ public class MainActivity extends AppCompatActivity {
                 // Handle the start of a new active recording
                 msg = "Recording started";
                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-            } else if (videoRecordEvent instanceof VideoRecordEvent.Pause) {
-                msg = "Recording paused";
-                // Handle the case where the active recording is paused
-            } else if (videoRecordEvent instanceof VideoRecordEvent.Resume) {
-                // Handles the case where the active recording is resumed
-                msg = "Recording resumed";
             } else if (videoRecordEvent instanceof VideoRecordEvent.Finalize) {
                 VideoRecordEvent.Finalize finalizeEvent = (VideoRecordEvent.Finalize) videoRecordEvent;
                 // Handles a finalize event for the active recording, checking Finalize.getError()
@@ -156,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 int error = finalizeEvent.getError();
                 if (error != VideoRecordEvent.Finalize.ERROR_NONE) {
                     msg = "Error: " + ((VideoRecordEvent.Finalize) videoRecordEvent).getError();
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
                 }
             }
 
